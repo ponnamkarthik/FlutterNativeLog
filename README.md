@@ -1,4 +1,4 @@
-# flutter_native_log
+# [flutter_native_log](https://pub.dartlang.org/packages/flutter_native_log)
 
 Flutter Plugin to print Log messages 
 
