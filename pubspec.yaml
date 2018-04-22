@@ -1,0 +1,21 @@
+name: flutter_native_log
+description: Flutter Plugin to print Log messages
+version: 0.1.0
+author: Karthik Ponnam <ponnamkarthik3@gmail.com>
+homepage: https://github.com/PonnamKarthik/FlutterNativeLog
+
+dependencies:
+  meta: ^1.0.4
+  flutter:
+    sdk: flutter
+
+
+flutter:
+  plugin:
+    androidPackage: io.github.ponnamkarthik.flutternativelog
+    pluginClass: FlutterNativeLogPlugin
+
+
+environment:
+  sdk: ">=2.0.0-dev.28.0 <3.0.0"
+  flutter: ">=0.1.4 <2.0.0"
