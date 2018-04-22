@@ -37,7 +37,7 @@ class FlutterNativeLog {
     return version;
   }
 
-  Future<String> printLog({Log logType,@required String tag, @required String msg}) async {
+  Future<String> printLog({Log logType,@required String tag, @required String msg, bool forceLog = false}) async {
 
 
     bool canLog = true;
@@ -56,8 +56,15 @@ class FlutterNativeLog {
       log = "debug";
     }
 
-    if((isProd && logType == Log.DEBUG) || (isProd && logType == null)) {
+//    if((isProd && logType == Log.DEBUG) || (isProd && logType == null) || (isProd && logType == Log.ERROR) || (isProd && logType == Log.INFO) || (isProd && logType == Log.WARNING)) {
+//      canLog = false;
+//    }
+    if(isProd) {
       canLog = false;
+    }
+
+    if(forceLog) {
+      canLog = true;
     }
 
     if(canLog) {

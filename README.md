@@ -3,21 +3,18 @@
 Flutter Plugin to print Log messages 
 
 You can set either in production or in debug once
-
+```java
 if production
-    warning
-    info
-    error
-    verbose
-    wtf
- 
-if debug 
-    debug
-    warning
-    info
-    error
-    verbose
-    wtf  
+    NO Logs in production
+  
+ if debug 
+     debug
+     warning
+     info
+     error
+     verbose
+     wtf  
+```
 
 ## Usage
 
@@ -27,7 +24,7 @@ import dependency
 ```yaml
 
 dependencies:
-  flutter_native_log: "^0.1.0"
+  flutter_native_log: "^0.2.0"
   
 ```
 
@@ -50,6 +47,10 @@ flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Debug", logType: Lo
 flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Info", logType: Log.INFO); // logType = debug
 flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Verbose", logType: Log.VERBOSE); // logType = debug
 flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test WTF", logType: Log.WTF); // logType = debug
+
+//if you want to log in production
+
+flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Default Log", forceLog: true);
 
 ```
 
