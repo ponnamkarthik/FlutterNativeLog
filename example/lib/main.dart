@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   initState() {
     super.initState();
     //set you are in production or in debug once
-    flutterNativeLog.setIsProduction(isProduction: true);
+    flutterNativeLog.setIsProduction(isProduction: false);
 
     printLogs();
   }
@@ -26,13 +26,12 @@ class _MyAppState extends State<MyApp> {
   void printLogs() {
 
     //Start logging
-    flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Default Log"); // default logType
-    flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Warning", logType: Log.WARNING); // logType = warning
-    flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Error", logType: Log.ERROR); // logType = error
-    flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Debug", logType: Log.DEBUG); // logType = debug
-    flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Info", logType: Log.INFO); // logType = debug
-    flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Verbose", logType: Log.VERBOSE); // logType = debug
-    flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test WTF", logType: Log.WTF); // logType = debug
+    flutterNativeLog.w(tag: "Karthik", msg: "This is Test Warning"); // logType = warning
+    flutterNativeLog.e(tag: "Karthik", msg: "This is Test Error"); // logType = error
+    flutterNativeLog.d(tag: "Karthik", msg: "This is Test Debug"); // logType = debug
+    flutterNativeLog.i(tag: "Karthik", msg: "This is Test Info"); // logType = debug
+    flutterNativeLog.v(tag: "Karthik", msg: "This is Test Verbose"); // logType = debug
+    flutterNativeLog.wtf(tag: "Karthik", msg: "This is Test WTF"); // logType = debug
 
   }
 

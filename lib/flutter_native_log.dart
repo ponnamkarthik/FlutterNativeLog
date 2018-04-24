@@ -37,46 +37,96 @@ class FlutterNativeLog {
     return version;
   }
 
-  Future<String> printLog({Log logType,@required String tag, @required String msg, bool forceLog = false}) async {
+  Future<String> d({@required String tag, @required String msg, bool forceLog = false}) async {
 
+    final Map<String, dynamic> params = <String, dynamic> {
+      'tag': tag,
+      'msg': msg,
+      'logType': 'debug'
+    };
 
-    bool canLog = true;
-    String log = "debug";
-    if(logType == Log.WARNING) {
-      log = "warning";
-    } else if(logType == Log.ERROR) {
-      log = "error";
-    } else if(logType == Log.VERBOSE) {
-      log = "verbose";
-    } else if(logType == Log.WTF) {
-      log = "wtf";
-    } else if(logType == Log.INFO) {
-      log = "info";
-    } else if(logType == Log.DEBUG && !isProd){
-      log = "debug";
+    if(!isProd) {
+      log(params);
+    } else if(isProd && forceLog) {
+      log(params);
     }
-
-//    if((isProd && logType == Log.DEBUG) || (isProd && logType == null) || (isProd && logType == Log.ERROR) || (isProd && logType == Log.INFO) || (isProd && logType == Log.WARNING)) {
-//      canLog = false;
-//    }
-    if(isProd) {
-      canLog = false;
-    }
-
-    if(forceLog) {
-      canLog = true;
-    }
-
-    if(canLog) {
-      final Map<String, dynamic> params = <String, dynamic> {
-        'tag': tag,
-        'msg': msg,
-        'logType': log
-      };
-      final String result = await _channel.invokeMethod('printLog', params);
-      return result;
-    } else {
-      return "Done";
-    }
+    return "Done";
   }
+  Future<String> e({@required String tag, @required String msg, bool forceLog = false}) async {
+
+    final Map<String, dynamic> params = <String, dynamic> {
+      'tag': tag,
+      'msg': msg,
+      'logType': 'error'
+    };
+
+    if(!isProd) {
+      log(params);
+    } else if(isProd && forceLog) {
+      log(params);
+    }
+    return "Done";
+  }
+  Future<String> v({@required String tag, @required String msg, bool forceLog = false}) async {
+
+    final Map<String, dynamic> params = <String, dynamic> {
+      'tag': tag,
+      'msg': msg,
+      'logType': 'verbose'
+    };
+
+    if(!isProd) {
+      log(params);
+    } else if(isProd && forceLog) {
+      log(params);
+    }
+    return "Done";
+  }
+  Future<String> w({@required String tag, @required String msg, bool forceLog = false}) async {
+
+    final Map<String, dynamic> params = <String, dynamic> {
+      'tag': tag,
+      'msg': msg,
+      'logType': 'warning'
+    };
+
+    if(!isProd) {
+      log(params);
+    } else if(isProd && forceLog) {
+      log(params);
+    }
+    return "Done";
+  }
+  Future<String> i({@required String tag, @required String msg, bool forceLog = false}) async {
+
+    final Map<String, dynamic> params = <String, dynamic> {
+      'tag': tag,
+      'msg': msg,
+      'logType': 'info'
+    };
+
+    if(!isProd) {
+      log(params);
+    } else if(isProd && forceLog) {
+      log(params);
+    }
+    return "Done";
+  }
+  Future<String> wtf({@required String tag, @required String msg, bool forceLog = false}) async {
+
+    final Map<String, dynamic> params = <String, dynamic> {
+      'tag': tag,
+      'msg': msg,
+      'logType': 'wtf'
+    };
+
+    log(params);
+    return "Done";
+  }
+
+
+  void log(params) async {
+      await _channel.invokeMethod('printLog', params);
+  }
+
 }

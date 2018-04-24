@@ -1,3 +1,7 @@
+## [0.3.0]
+
+*Replaced LogType with different function each type
+
 ## [0.2.0]
 
 *Bug Fixes

@@ -24,7 +24,7 @@ import dependency
 ```yaml
 
 dependencies:
-  flutter_native_log: "^0.2.0"
+  flutter_native_log: "^0.3.0"
   
 ```
 
@@ -40,17 +40,15 @@ flutterNativeLog.setIsProduction(isProduction: true);
 
 
 //Start logging
-flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Default Log"); // default logType
-flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Warning", logType: Log.WARNING); // logType = warning
-flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Error", logType: Log.ERROR); // logType = error
-flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Debug", logType: Log.DEBUG); // logType = debug
-flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Info", logType: Log.INFO); // logType = debug
-flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Verbose", logType: Log.VERBOSE); // logType = debug
-flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test WTF", logType: Log.WTF); // logType = debug
-
+flutterNativeLog.w(tag: "Karthik", msg: "This is Test Warning"); // logType = warning
+    flutterNativeLog.e(tag: "Karthik", msg: "This is Test Error"); // logType = error
+    flutterNativeLog.d(tag: "Karthik", msg: "This is Test Debug"); // logType = debug
+    flutterNativeLog.i(tag: "Karthik", msg: "This is Test Info"); // logType = debug
+    flutterNativeLog.v(tag: "Karthik", msg: "This is Test Verbose"); // logType = debug
+    flutterNativeLog.wtf(tag: "Karthik", msg: "This is Test WTF"); // logType = debug
 //if you want to log in production
 
-flutterNativeLog.printLog(tag: "Karthik", msg: "This is Test Default Log", forceLog: true);
+flutterNativeLog.d(tag: "Karthik", msg: "This is Test Log from Production", forceLog: true);
 
 ```
 

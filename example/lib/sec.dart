@@ -12,7 +12,7 @@ class _SecondClassState extends State<SecondClass> {
   void initState() {
     super.initState();
     FlutterNativeLog flutterNativeLog = new FlutterNativeLog();
-    flutterNativeLog.printLog(tag: "Karthik", msg: "From Second One");
+    flutterNativeLog.d(tag: "Karthik", msg: "From Second One");
   }
 
   @override
